@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterAPI", "LetterAPI.csproj", "{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LettersDB", "..\LettersDB\LettersDB.sqlproj", "{22DC796D-B84A-4010-962B-9A941720778B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19A7D2A7-2214-4463-B3BD-5B10F9B23146}
+	EndGlobalSection
+EndGlobal
