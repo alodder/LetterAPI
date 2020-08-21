@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LetterAPI.Models;
+using System.Security.Cryptography.X509Certificates;
+using NReco.PdfGenerator;
+using DinkToPdf;
 
 namespace LetterAPI.Controllers
 {
@@ -39,6 +42,38 @@ namespace LetterAPI.Controllers
             }
 
             return letter;
+        }
+
+        // GET api/Letters/section/3
+        [HttpGet("section/{Section}")]
+        public async Task<ActionResult<IEnumerable<Letter>>> GetSectionLetters(string Section)
+        {
+            var letters = _context.Letters.Where(x => x.SectionID == Section);
+
+            if (letters == null)
+            {
+                return NotFound();
+            }
+
+            return await letters.ToListAsync<Letter>();
+        }
+
+        // GET: api/Letters/pdf/78556
+        [HttpGet("pdf/{pkey}")]
+        public async Task<ActionResult<PrintData>> GetPDF(int pkey)
+        {
+            var printout = await _context.PrintData.FindAsync(pkey);
+
+            if (printout == null)
+            {
+                return NotFound();
+            }
+
+            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+            var pdfBytes = htmlToPdf.GeneratePdf(printout.LetterData);
+
+            //return File(pdfBytes, "application/pdf");
+            return NoContent();
         }
 
         // PUT: api/Letters/5

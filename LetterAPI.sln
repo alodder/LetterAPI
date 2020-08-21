@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterAPI", "LetterAPI.csproj", "{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LetterAPI.Data", "LetterAPI.Data.csproj", "{6CD0CAB5-E328-42F3-B091-2AC88D5A3192}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LettersDB", "..\LettersDB\LettersDB.sqlproj", "{22DC796D-B84A-4010-962B-9A941720778B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterAPI.Core", "..\LetterAPI.Core\LetterAPI.Core.csproj", "{F0C1660F-BE78-4054-A17C-5B6DA43320B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22DC796D-B84A-4010-962B-9A941720778B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F0C1660F-BE78-4054-A17C-5B6DA43320B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C1660F-BE78-4054-A17C-5B6DA43320B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C1660F-BE78-4054-A17C-5B6DA43320B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C1660F-BE78-4054-A17C-5B6DA43320B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

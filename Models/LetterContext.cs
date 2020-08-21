@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LetterAPI.Core.Entities;
 
 namespace LetterAPI.Models
 {
@@ -14,5 +15,9 @@ namespace LetterAPI.Models
         }
 
         public DbSet<Letter> Letters { get; set; }
+
+        public DbSet<PrintData> PrintData { get; set; }
+
+        public DbSet<Template> Templates { get; set; }
     }
 }

@@ -2,6 +2,33 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "DinkToPdf.Standard/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/DinkToPdf.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DinkToPdf.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/wkhtmltox.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/wkhtmltox.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win7-x64/native/wkhtmltox.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/wkhtmltox.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -860,6 +887,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NReco.PdfGenerator.LT/1.1.17": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NReco.PdfGenerator.LT.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NReco.PdfGenerator.LT.dll": {}
         }
       },
       "NuGet.Frameworks/4.7.0": {
@@ -2678,10 +2714,37 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "LetterAPI.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/LetterAPI.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LetterAPI.Core.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "DinkToPdf.Standard/1.1.0": {
+      "sha512": "o/9HYO8tQ3GkPNZKRmwxqKzGMJwXF4IjN9XCQO9e+UhmDn9qaQgHVl1VDOyfk6CSaSs/QZfJfYX9g1lZKNyqPg==",
+      "type": "package",
+      "path": "dinktopdf.standard/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dinktopdf.standard.1.1.0.nupkg.sha512",
+        "dinktopdf.standard.nuspec",
+        "lib/netstandard2.0/DinkToPdf.dll",
+        "runtimes/LICENSE",
+        "runtimes/win-x64/native/wkhtmltox.dll",
+        "runtimes/win-x86/native/wkhtmltox.dll",
+        "runtimes/win7-x64/native/wkhtmltox.dll",
+        "runtimes/win7-x86/native/wkhtmltox.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "sha512": "Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "type": "package",
@@ -4065,6 +4128,23 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "NReco.PdfGenerator.LT/1.1.17": {
+      "sha512": "slDzYkXp9AoUurZ/uB2sF7NtYe84O9HTCC5+KiEBDXa673opQTD2U/nKpegozZggsru/NuXrcFURtPtTPsZ2BQ==",
+      "type": "package",
+      "path": "nreco.pdfgenerator.lt/1.1.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/NReco.PdfGenerator.LT.dll",
+        "lib/net20/NReco.PdfGenerator.LT.xml",
+        "lib/netstandard1.5/NReco.PdfGenerator.LT.dll",
+        "lib/netstandard1.5/NReco.PdfGenerator.LT.xml",
+        "lib/netstandard2.0/NReco.PdfGenerator.LT.dll",
+        "lib/netstandard2.0/NReco.PdfGenerator.LT.xml",
+        "nreco.pdfgenerator.lt.1.1.17.nupkg.sha512",
+        "nreco.pdfgenerator.lt.nuspec"
       ]
     },
     "NuGet.Frameworks/4.7.0": {
@@ -8499,14 +8579,22 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "LetterAPI.Core/1.0.0": {
+      "type": "project",
+      "path": "../LetterAPI.Core/LetterAPI.Core.csproj",
+      "msbuildProject": "../LetterAPI.Core/LetterAPI.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DinkToPdf.Standard >= 1.1.0",
+      "LetterAPI.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.5",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.5",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.5",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3",
+      "NReco.PdfGenerator.LT >= 1.1.17"
     ]
   },
   "packageFolders": {
@@ -8516,9 +8604,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.csproj",
-      "projectName": "LetterAPI",
-      "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.csproj",
+      "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Data.csproj",
+      "projectName": "LetterAPI.Data",
+      "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Data.csproj",
       "packagesPath": "C:\\Users\\loddera\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\obj\\",
       "projectStyle": "PackageReference",
@@ -8538,7 +8626,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj": {
+              "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -8550,6 +8642,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "DinkToPdf.Standard": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[3.1.5, )"
@@ -8567,6 +8663,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.3, )"
+          },
+          "NReco.PdfGenerator.LT": {
+            "target": "Package",
+            "version": "[1.1.17, )"
           }
         },
         "imports": [
@@ -8587,7 +8687,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

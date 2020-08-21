@@ -15,5 +15,7 @@ namespace LetterAPI.Models
         public string Name { get; set; }
         public string Path { get; set; }
         public string WebPath { get; set; }
+        [Key]
+        public int Id { get; set; }
     }
 }
