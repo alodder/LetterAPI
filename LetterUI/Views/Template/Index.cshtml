@@ -1,0 +1,14 @@
+﻿@using LetterUI.Models
+@model TemplateListViewModel 
+
+<div class="text-center">
+    <h1 class="display-4">Templates</h1>
+    <p>Load some templates</p>
+    <dl>
+        @foreach (var letter in Model.Templates)
+        {
+            <dt>@letter.LetterName</dt>
+            <dd>@letter.LastEditUser</dd>
+        }
+    </dl>
+</div>

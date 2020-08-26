@@ -1,0 +1,9 @@
+C:\Users\loddera\source\repos\LetterAPI.Core\bin\Debug\netstandard2.0\LetterAPI.Core.deps.json
+C:\Users\loddera\source\repos\LetterAPI.Core\bin\Debug\netstandard2.0\LetterAPI.Core.dll
+C:\Users\loddera\source\repos\LetterAPI.Core\bin\Debug\netstandard2.0\LetterAPI.Core.pdb
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.csprojAssemblyReference.cache
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.AssemblyInfoInputs.cache
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.AssemblyInfo.cs
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.csproj.CoreCompileInputs.cache
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.dll
+C:\Users\loddera\source\repos\LetterAPI.Core\obj\Debug\netstandard2.0\LetterAPI.Core.pdb

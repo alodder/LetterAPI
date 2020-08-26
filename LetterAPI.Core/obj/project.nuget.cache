@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9A2cZDS/epzM4aeeL8VwlckBl5XVALwzPeZQgacxNEJD/NUWQNCc9cVxTKgvYrTt6s6j0iIAKBSuXszTSKVXeA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
