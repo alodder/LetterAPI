@@ -4,11 +4,25 @@
 <div class="text-center">
     <h1 class="display-4">Templates</h1>
     <p>Load some templates</p>
-    <dl>
+    <table>
+        <tr>
+            <th>Letter Name</th>
+            <th>Section</th>
+            <th>Last touched by</th>
+            <th>Last touch date</th>
+            <th>Letter</th>
+            <th>Export</th>
+        </tr>
         @foreach (var letter in Model.Templates)
         {
-            <dt>@letter.LetterName</dt>
-            <dd>@letter.LastEditUser</dd>
+            <tr>
+                <td>@letter.LetterName</td>
+                <td>@letter.SectionID</td>
+                <td>@letter.LastEditUser</td>
+                <td>@letter.LastEditDate</td>
+                <td>@letter.LetterContent</td>
+                <td><input type="checkbox" /></td>
+            </tr>
         }
-    </dl>
+    </table>
 </div>
