@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj": {}
+    "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj": {
+    "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj",
+        "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj",
         "projectName": "LetterAPI.Core",
-        "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj",
+        "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj",
         "packagesPath": "C:\\Users\\loddera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\obj\\",
+        "outputPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

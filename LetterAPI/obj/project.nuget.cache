@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6SkfhpsoZr9NZzDiqJY6u29UZ9HA1B+yYjZ0TeZPTwQgPRt1wor7buGnlpYuAhTFD2ITL55bP0JzjQVoED0SBw==",
+  "dgSpecHash": "OX2iPwsurrkJJEkwx8o5BPjErh2aIsgCmD4ZUgu3Eck3QVGjG7L3Zhl86bjVbvrND6dstT6SA2wKhKEdqoIdTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Data.csproj",
+  "projectFilePath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI\\LetterAPI.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\loddera\\.nuget\\packages\\dinktopdf.standard\\1.1.0\\dinktopdf.standard.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

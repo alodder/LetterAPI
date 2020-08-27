@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterUI\\LetterUI.csproj",
+      "projectUniqueName": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterUI\\LetterUI.csproj",
       "projectName": "LetterUI",
-      "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterUI\\LetterUI.csproj",
+      "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterUI\\LetterUI.csproj",
       "packagesPath": "C:\\Users\\loddera\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\loddera\\source\\repos\\LetterUI\\obj\\",
+      "outputPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -56,8 +56,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj": {
-              "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI.Core\\LetterAPI.Core.csproj"
+            "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj": {
+              "projectPath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterAPI.Core\\LetterAPI.Core.csproj"
             }
           }
         }

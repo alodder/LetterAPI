@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "asVUqMONHlhzpObdhJdMgbvbhAlMypQ1buHBrZ20TqxymIOW1awFEEOc5T1FvTnArC01MiN9uJ0oCPo/LUwO9g==",
+  "dgSpecHash": "cplNi3xWqCC6x4hjL7HFvb+rFYRweuDkMW1pa13StboA7IcJkccAiYBgnjUwmRZ1xvoRdKxcCVk7+3b07jo20Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\loddera\\source\\repos\\LetterUI\\LetterUI.csproj",
+  "projectFilePath": "C:\\Users\\loddera\\source\\repos\\LetterAPI\\LetterUI\\LetterUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
