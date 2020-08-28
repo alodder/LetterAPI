@@ -58,5 +58,30 @@ namespace LetterUI.Controllers
 
             }
         }
+
+        public async Task<IActionResult> Download()
+        {
+            var request = "letters";
+
+            var myclient = _clientFactory.CreateClient("LetterAPI");
+
+            using (var Response = await myclient.GetAsync(request))
+            {
+                if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var apiResponse = await Response.Content.ReadAsStringAsync();
+                    var Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse);
+                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(Templates);
+                    return File(templatebytes, "application/json", "mytemplates.json");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ModelState.AddModelError(string.Empty, "Username or Password is Incorrect");
+                    return View();
+                }
+
+            }
+        }
     }
 }
