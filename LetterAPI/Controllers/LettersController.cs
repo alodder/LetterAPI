@@ -123,7 +123,7 @@ namespace LetterAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LetterExists(id))
+                if (!LetterExists(id, letter.SectionID))
                 {
                     return NotFound();
                 }
@@ -149,7 +149,7 @@ namespace LetterAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (LetterExists(letter.LetterName))
+                if (LetterExists(letter.LetterName, letter.SectionID))
                 {
                     return Conflict();
                 }
@@ -160,6 +160,35 @@ namespace LetterAPI.Controllers
             }
 
             return CreatedAtAction("GetLetter", new { id = letter.LetterName }, letter);
+        }
+        
+        // POST: api/Letters
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPut]
+        public async Task<ActionResult<Letter>> PutLetters(List<Letter> letters)
+        {
+            foreach(Letter letter in letters)
+            {
+                if (!LetterExists(letter.LetterName, letter.SectionID))
+                {
+                    _context.Letters.Add(letter);
+                } else
+                {
+                    _context.Entry(letter).State = EntityState.Modified;
+                }
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+
+            return CreatedAtAction("GetLetters", new {});
         }
 
         // DELETE: api/Letters/5
@@ -178,9 +207,9 @@ namespace LetterAPI.Controllers
             return letter;
         }
 
-        private bool LetterExists(string id)
+        private bool LetterExists(string id, string section)
         {
-            return _context.Letters.Any(e => e.LetterName == id);
+            return _context.Letters.Any(e => (e.LetterName == id) && (e.SectionID == section));
         }
     }
 }

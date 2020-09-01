@@ -78,3 +78,4 @@ C:\Users\loddera\source\repos\LetterAPI\LetterUI\obj\Debug\netcoreapp3.1\staticw
 C:\Users\loddera\source\repos\LetterAPI\LetterUI\obj\Debug\netcoreapp3.1\LetterUI.dll
 C:\Users\loddera\source\repos\LetterAPI\LetterUI\obj\Debug\netcoreapp3.1\LetterUI.pdb
 C:\Users\loddera\source\repos\LetterAPI\LetterUI\obj\Debug\netcoreapp3.1\LetterUI.genruntimeconfig.cache
+C:\Users\loddera\source\repos\LetterAPI\LetterUI\obj\Debug\netcoreapp3.1\Razor\Views\Template\Upload.cshtml.g.cs

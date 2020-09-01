@@ -59,9 +59,15 @@ namespace LetterUI.Controllers
             }
         }
 
+        [HttpGet]
         public async Task<IActionResult> Download()
         {
             var request = "letters";
+
+            var serializerOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
 
             var myclient = _clientFactory.CreateClient("LetterAPI");
 
@@ -70,8 +76,8 @@ namespace LetterUI.Controllers
                 if (Response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var apiResponse = await Response.Content.ReadAsStringAsync();
-                    var Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse);
-                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(Templates);
+                    var Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse, serializerOptions);
+                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(Templates, serializerOptions);
                     return File(templatebytes, "application/json", "mytemplates.json");
                 }
                 else
@@ -80,7 +86,38 @@ namespace LetterUI.Controllers
                     ModelState.AddModelError(string.Empty, "Username or Password is Incorrect");
                     return View();
                 }
+            }
+        }
 
+        [HttpGet]
+        public IActionResult Upload()
+        {
+            TemplateUploadViewModel model = new TemplateUploadViewModel()
+            {
+                PageTitle = "Templates"
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Upload(TemplateUploadViewModel model)
+        {
+            try
+            {
+                if (model.JsonFile.Length > 0)
+                {
+                    //deserialize
+
+                    //post vs put
+
+                }
+                ViewBag.Message = "File Uploaded Successfully!!";
+                return View();
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View();
             }
         }
     }
