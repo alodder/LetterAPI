@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using LetterAPI.Core.Entities;
 using LetterUI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -100,16 +103,50 @@ namespace LetterUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Upload(TemplateUploadViewModel model)
+        public async Task<IActionResult> Upload(TemplateUploadViewModel model)
         {
             try
             {
                 if (model.JsonFile.Length > 0)
                 {
-                    //deserialize
+                    var serializerOptions = new JsonSerializerOptions
+                    {
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                    };
 
+                    byte[] fileBytes;
+                    using (var ms = new MemoryStream())
+                    {
+                        model.JsonFile.CopyTo(ms);
+                        fileBytes = ms.ToArray();
+                        //string s = Convert.ToBase64String(fileBytes);
+                        // act on the Base64 data
+                    }
+
+                    
+                    //deserialize
+                    var Templates = JsonSerializer.Deserialize<List<Letter>>(fileBytes, serializerOptions);
                     //post vs put
 
+                    var request = "letters";
+
+                    var myclient = _clientFactory.CreateClient("LetterAPI");
+
+                    myclient.PutAsJsonAsync();
+
+                    using (var Response = await myclient.PutAsync(request, Templates))
+                    {
+                        if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            return View();
+                        }
+                        else
+                        {
+                            ModelState.Clear();
+                            ModelState.AddModelError(string.Empty, "Username or Password is Incorrect");
+                            return View();
+                        }
+                    }
                 }
                 ViewBag.Message = "File Uploaded Successfully!!";
                 return View();
@@ -120,5 +157,19 @@ namespace LetterUI.Controllers
                 return View();
             }
         }
+
+        /*public byte[] ReadBytesAsync(this IFormFile file)
+        {
+            byte[] fileBytes;
+            using (var ms = new MemoryStream())
+            {
+                file.CopyTo(ms);
+                fileBytes = ms.ToArray();
+                //string s = Convert.ToBase64String(fileBytes);
+                // act on the Base64 data
+            }
+
+            return fileBytes;
+        }*/
     }
 }
