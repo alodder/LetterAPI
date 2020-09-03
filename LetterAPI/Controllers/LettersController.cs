@@ -161,11 +161,11 @@ namespace LetterAPI.Controllers
 
             return CreatedAtAction("GetLetter", new { id = letter.LetterName }, letter);
         }
-        
+
         // POST: api/Letters
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut]
+        [HttpPut("bundle/")]
         public async Task<ActionResult<Letter>> PutLetters(List<Letter> letters)
         {
             foreach(Letter letter in letters)

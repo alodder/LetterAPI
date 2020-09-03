@@ -114,29 +114,35 @@ namespace LetterUI.Controllers
                         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                     };
 
-                    byte[] fileBytes;
+                    var jsonString = new StringBuilder();
+                    using (var reader = new StreamReader(model.JsonFile.OpenReadStream()))
+                    {
+                        while (reader.Peek() >= 0)
+                            jsonString.AppendLine(reader.ReadLine());
+                    }
+
+                   /* string jsonString;
+                    //byte[] fileBytes;
                     using (var ms = new MemoryStream())
                     {
                         model.JsonFile.CopyTo(ms);
-                        fileBytes = ms.ToArray();
-                        //string s = Convert.ToBase64String(fileBytes);
+                        byte[] fileBytes = ms.ToArray();
+                        jsonString = Convert.ToBase64String(fileBytes);
                         // act on the Base64 data
-                    }
+                    }*/
 
-                    
+                    var content = new StringContent(jsonString.ToString(), System.Text.Encoding.UTF8, "application/json");
                     //deserialize
-                    var Templates = JsonSerializer.Deserialize<List<Letter>>(fileBytes, serializerOptions);
+                    //var Templates = JsonSerializer.Deserialize<List<Letter>>(fileBytes, serializerOptions);
                     //post vs put
 
-                    var request = "letters";
+                    var request = "letters/bundle";
 
                     var myclient = _clientFactory.CreateClient("LetterAPI");
 
-                    myclient.PutAsJsonAsync();
-
-                    using (var Response = await myclient.PutAsync(request, Templates))
+                    using (var Response = await myclient.PutAsync(request, content))
                     {
-                        if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+                        if (Response.StatusCode == System.Net.HttpStatusCode.Created)
                         {
                             return View();
                         }
