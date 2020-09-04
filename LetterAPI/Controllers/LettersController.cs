@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 //using NReco.PdfGenerator;
 using DinkToPdf;
 using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace LetterAPI.Controllers
 {
@@ -19,9 +20,12 @@ namespace LetterAPI.Controllers
     {
         private readonly LetterContext _context;
 
-        public LettersController(LetterContext context)
+        private readonly ILogger<TemplatesController> _logger;
+
+        public LettersController(ILogger<TemplatesController> logger, LetterContext context)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Letters

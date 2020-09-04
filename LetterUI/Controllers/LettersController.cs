@@ -15,13 +15,13 @@ using Microsoft.Extensions.Logging;
 
 namespace LetterUI.Controllers
 {
-    public class TemplateController : Controller
+    public class LettersController : Controller
     {
-        private readonly ILogger<TemplateController> _logger;
+        private readonly ILogger<LettersController> _logger;
         private readonly IConfiguration _Configure;
         private readonly IHttpClientFactory _clientFactory;
 
-        public TemplateController(ILogger<TemplateController> logger, IConfiguration configuration, IHttpClientFactory clientFactory)
+        public LettersController(ILogger<LettersController> logger, IConfiguration configuration, IHttpClientFactory clientFactory)
         {
             _logger = logger;
             _Configure = configuration;
@@ -30,7 +30,7 @@ namespace LetterUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            TemplateListViewModel model = new TemplateListViewModel()
+            LetterListViewModel model = new LetterListViewModel()
             {
                 PageTitle = "Templates"
             };
@@ -40,25 +40,43 @@ namespace LetterUI.Controllers
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
-            var request = "letters";
-
             var myclient = _clientFactory.CreateClient("LetterAPI");
 
-            using (var Response = await myclient.GetAsync(request))
+            model.Sections = await GetSections(serializerOptions, myclient);
+            model.Letters = await GetLetters(serializerOptions, myclient);
+
+            return View(model);
+        }
+
+        private static async Task<List<Section>> GetSections(JsonSerializerOptions serializerOptions, HttpClient myclient)
+        {
+            using (var Response = await myclient.GetAsync("sections"))
             {
                 if (Response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var apiResponse = await Response.Content.ReadAsStringAsync();
-                    model.Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse, serializerOptions);
-                    return View(model);
+                    return JsonSerializer.Deserialize<List<Section>>(apiResponse, serializerOptions);
                 }
                 else
                 {
-                    ModelState.Clear();
-                    ModelState.AddModelError(string.Empty, "Username or Password is Incorrect");
-                    return View(model);
+                    return new List<Section>();
                 }
+            }
+        }
 
+        private static async Task<List<Letter>> GetLetters(JsonSerializerOptions serializerOptions, HttpClient myclient)
+        {
+            using (var Response = await myclient.GetAsync("letters"))
+            {
+                if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var apiResponse = await Response.Content.ReadAsStringAsync();
+                    return JsonSerializer.Deserialize<List<Letter>>(apiResponse, serializerOptions);
+                }
+                else
+                {
+                    return new List<Letter>();
+                }
             }
         }
 
@@ -95,7 +113,7 @@ namespace LetterUI.Controllers
         [HttpGet]
         public IActionResult Upload()
         {
-            TemplateUploadViewModel model = new TemplateUploadViewModel()
+            LetterUploadViewModel model = new LetterUploadViewModel()
             {
                 PageTitle = "Templates"
             };
@@ -103,7 +121,7 @@ namespace LetterUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Upload(TemplateUploadViewModel model)
+        public async Task<IActionResult> Upload(LetterUploadViewModel model)
         {
             try
             {

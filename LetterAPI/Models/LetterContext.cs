@@ -19,5 +19,7 @@ namespace LetterAPI.Models
         public DbSet<PrintData> PrintData { get; set; }
 
         public DbSet<Template> Templates { get; set; }
+
+        public DbSet<Section> Sections { get; set; }
     }
 }

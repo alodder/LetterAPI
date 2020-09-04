@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace LetterUI.Models
 {
-    public class TemplateUploadViewModel : PageViewModel
+    public class LetterUploadViewModel : PageViewModel
     {
-        public List<Letter> Templates { get; set; }
+        public List<Letter> Letters { get; set; }
         public IFormFile JsonFile { get; set; }
     }
 }

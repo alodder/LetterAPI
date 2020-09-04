@@ -1,0 +1,49 @@
+﻿@using LetterUI.Models
+@model LetterListViewModel 
+
+<div class="text-center">
+    <h1 class="display-4">Letters</h1>
+    <p>Load some Letters</p>
+
+    <div>
+        <select>
+            @foreach (var sect in Model.Sections)
+            {
+                <option>
+                    @sect.SectionName
+                </option>
+            }
+        </select>
+        <input asp-page-handler="" class="btn" type="submit" value="Get Section Letters" />
+    </div>
+
+    <div>
+        <input asp-page-handler="" class="btn" type="submit" value="Download Letters" />
+    </div>
+
+    <table>
+        <tr>
+            <th>Letter Name</th>
+            <th>Section</th>
+            <th>Last touched by</th>
+            <th>Last touch date</th>
+            <th>Letter</th>
+            <th>Download</th>
+        </tr>
+        @foreach (var letter in Model.Letters)
+        {
+            <tr>
+                <td>@letter.LetterName</td>
+                <td>@letter.SectionID</td>
+                <td>@letter.LastEditUser</td>
+                <td>@letter.LastEditDate</td>
+                <td></td>
+                <td>
+                    <input type="checkbox" />
+                    <input type="hidden" name="name" value="@letter.LetterName" />
+                    <input type="hidden" name="id" value="@letter.SectionID" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>

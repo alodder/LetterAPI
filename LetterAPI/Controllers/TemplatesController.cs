@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LetterAPI.Models;
+using Microsoft.Extensions.Logging;
 
 namespace LetterAPI.Controllers
 {
@@ -15,8 +16,11 @@ namespace LetterAPI.Controllers
     {
         private readonly LetterContext _context;
 
-        public TemplatesController(LetterContext context)
+        private readonly ILogger<TemplatesController> _logger;
+
+        public TemplatesController(ILogger<TemplatesController> logger, LetterContext context)
         {
+            _logger = logger;
             _context = context;
         }
 
