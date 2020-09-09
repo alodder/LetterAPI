@@ -10,6 +10,7 @@ using LetterAPI.Core.Entities;
 using LetterUI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -44,6 +45,8 @@ namespace LetterUI.Controllers
 
             model.Sections = await GetSections(serializerOptions, myclient);
             model.Letters = await GetLetters(serializerOptions, myclient);
+
+            model.SelectLetters = new SelectList(model.Letters, "LetterName", "LetterName");
 
             return View(model);
         }
@@ -83,6 +86,39 @@ namespace LetterUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Download()
         {
+            var request = "letters";
+
+            var serializerOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            var myclient = _clientFactory.CreateClient("LetterAPI");
+
+            using (var Response = await myclient.GetAsync(request))
+            {
+                if (Response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var apiResponse = await Response.Content.ReadAsStringAsync();
+                    var Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse, serializerOptions);
+                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(Templates, serializerOptions);
+                    return File(templatebytes, "application/json", "mytemplates.json");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ModelState.AddModelError(string.Empty, "Username or Password is Incorrect");
+                    return View();
+                }
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Download(LetterListViewModel model)
+        {
+            _logger.LogInformation("Post to Download action");
+            _logger.LogInformation(model.PageTitle);
+
             var request = "letters";
 
             var serializerOptions = new JsonSerializerOptions

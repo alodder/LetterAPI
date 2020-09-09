@@ -18,7 +18,13 @@
     </div>
 
     <div>
-        <input asp-page-handler="" class="btn" type="submit" value="Download Letters" />
+        <form asp-controller="Letters" asp-action="Download" method="post">
+            <input class="btn" type="submit" value="Download Letters" />
+        </form>
+    </div>
+
+    <div>
+        <select multiple="multiple" class="multi-select" id="my_multi_select" asp-for="@Model.SelectLetters" asp-items=@(new MultiSelectList(@Model.Letters, "LetterName", "LetterName"))></select>
     </div>
 
     <table>
@@ -39,7 +45,7 @@
                 <td>@letter.LastEditDate</td>
                 <td></td>
                 <td>
-                    <input type="checkbox" />
+                    @Html.CheckBox(letter.LetterName, new { value = letter.LetterName, @checked = true})
                     <input type="hidden" name="name" value="@letter.LetterName" />
                     <input type="hidden" name="id" value="@letter.SectionID" />
                 </td>
