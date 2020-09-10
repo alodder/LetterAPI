@@ -19,12 +19,12 @@
 
     <div>
         <form asp-controller="Letters" asp-action="Download" method="post">
+            <select multiple="multiple" class="multi-select" id="my_multi_select" asp-for="SelectedLetters" asp-items=@(new MultiSelectList(@Model.Letters, "LetterName", "LetterName"))></select>
             <input class="btn" type="submit" value="Download Letters" />
         </form>
     </div>
 
     <div>
-        <select multiple="multiple" class="multi-select" id="my_multi_select" asp-for="@Model.SelectLetters" asp-items=@(new MultiSelectList(@Model.Letters, "LetterName", "LetterName"))></select>
     </div>
 
     <table>

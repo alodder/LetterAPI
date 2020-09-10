@@ -46,7 +46,7 @@ namespace LetterUI.Controllers
             model.Sections = await GetSections(serializerOptions, myclient);
             model.Letters = await GetLetters(serializerOptions, myclient);
 
-            model.SelectLetters = new SelectList(model.Letters, "LetterName", "LetterName");
+            //model.SelectedLetters = new SelectList(model.Letters, "LetterName", "LetterName");
 
             return View(model);
         }
@@ -114,9 +114,9 @@ namespace LetterUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Download(LetterListViewModel model)
+        public async Task<IActionResult> Download( LetterListViewModel model)
         {
-            _logger.LogInformation("Post to Download action");
+             _logger.LogInformation("Post to Download action");
             _logger.LogInformation(model.PageTitle);
 
             var request = "letters";
@@ -134,7 +134,10 @@ namespace LetterUI.Controllers
                 {
                     var apiResponse = await Response.Content.ReadAsStringAsync();
                     var Templates = JsonSerializer.Deserialize<List<Letter>>(apiResponse, serializerOptions);
-                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(Templates, serializerOptions);
+                    var selected = from letters in Templates
+                                   where model.SelectedLetters.Contains( letters.LetterName) //model.SelectLetters.SelectedValues.AsQueryable()
+                                   select letters;
+                    var templatebytes = JsonSerializer.SerializeToUtf8Bytes<List<Letter>>(selected.ToList(), serializerOptions);
                     return File(templatebytes, "application/json", "mytemplates.json");
                 }
                 else

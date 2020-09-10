@@ -8,14 +8,12 @@ namespace LetterUI.Models
 {
     public class LetterListViewModel : PageViewModel
     {
-        [BindProperty]
         public List<Letter> Letters { get; set; }
 
         public List<Section> Sections { get; set; }
 
-        public Section SelectSection { get; set; }
+        public Section SelectedSection { get; set; }
 
-        [BindProperty]
-        public SelectList SelectLetters { get; set; }
+        public List<string> SelectedLetters { get; set; }
     }
 }
